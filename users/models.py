@@ -8,6 +8,6 @@ class User(AbstractUser):
 
 
 class FriendRequest(models.Model):
-    from_user = models.ForeignKey(User, on_delete=models.CASCADE)
-    to_user = models.ForeignKey(User, on_delete=models.CASCADE)
+    from_user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="sent_friend_requests")
+    to_user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="received_friend_requests")
     is_active = models.BooleanField(default=True)
