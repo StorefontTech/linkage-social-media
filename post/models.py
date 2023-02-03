@@ -12,8 +12,8 @@ class Post(models.Model):
     image = models.ImageField()
 
     @property
-    async def like_count(self):
-        return await self.users_that_likes.acount()
+    def like_count(self):
+        return self.users_that_likes.count()
 
 
 class Comment(models.Model):
