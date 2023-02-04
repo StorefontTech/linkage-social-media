@@ -18,9 +18,11 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path
 
+import dashboard.views
 import users.views
 
 urlpatterns = [
                   path('admin/', admin.site.urls),
-                  path('login/', users.views.login),
+                  path('login/', users.views.login_view),
+                  path('', dashboard.views.dashboard_view),
               ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
