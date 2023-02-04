@@ -22,7 +22,8 @@ import dashboard.views
 import users.views
 
 urlpatterns = [
-                  path('admin/', admin.site.urls),
-                  path('login/', users.views.login_view),
-                  path('', dashboard.views.dashboard_view),
+                  path('admin/', admin.site.urls, name="admin"),
+                  path('login/', users.views.login_view, name="login"),
+                  path('register/', users.views.register_view, name="register"),
+                  path('', dashboard.views.dashboard_view, name="dashboard"),
               ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
